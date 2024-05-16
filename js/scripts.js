@@ -12,10 +12,16 @@ window.addEventListener('DOMContentLoaded', event => {
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
+        const mastheadExist = document.body.querySelector('.masthead');
+        // Only shrink navbar if have masthead class
+        if (!mastheadExist) {
+            navbarCollapsible.classList.add('navbar-shrink');
             return;
         }
-        if (window.scrollY === 0) {
+        if (!navbarCollapsible ) {
+            return;
+        }
+        if (window.scrollY === 0 ) {
             navbarCollapsible.classList.remove('navbar-shrink')
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
